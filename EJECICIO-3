@@ -1,0 +1,55 @@
+using System; 
+ 
+namespace Parentesis 
+{ 
+    class Program 
+    { 
+        static void Main(string[] args) 
+        { 
+           
+                string Cadena = string.Empty; 
+                Cadena = Console.ReadLine(); 
+                VerificarParentesis(Cadena);         
+        } 
+ 
+        private static void VerificarParentesis(string Cadena) 
+        { 
+            int Parentesis = 0; 
+ 
+            for (int i = 0; i < Cadena.Length; i++) 
+            { 
+                switch (Cadena.Substring(i, 1)) 
+                { 
+                    case "(": 
+                        Parentesis++; 
+                        break; 
+                    case ")": 
+                        Parentesis--; 
+                        break; 
+                    default: 
+                        i = Cadena.Length; 
+                        Console.WriteLine("Digite una cadena valida con solo Parentesis Abiertos o Cerrados"); 
+                        Console.ReadLine(); 
+                        break; 
+                } 
+ 
+                if (Parentesis < 0) 
+                { 
+                    Console.WriteLine("Incorrecto"); 
+                    Console.ReadLine(); 
+                    break; 
+                } 
+            } 
+            if (Parentesis == 0) 
+            { 
+                Console.WriteLine("Correcto"); 
+                Console.ReadLine(); 
+            } 
+            else 
+            { 
+                Console.WriteLine("Incorrecto"); 
+                Console.ReadLine(); 
+            } 
+        } 
+    } 
+}
